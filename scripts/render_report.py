@@ -52,7 +52,30 @@ def main() -> int:
     L.append("| Evidence | full-page screenshot at each failure + screen recording of each failing workflow |")
     L.append("")
 
-    fails = [r for r in rs if r["status"] in ("fail", "error")]
+    order = {"Critical": 0, "High": 1, "Medium": 2, "Low": 3, "": 4}
+    fails = sorted([r for r in rs if r["status"] in ("fail", "error")],
+                   key=lambda r: (order.get(r.get("severity") or "", 4), r["id"]))
+    if fails:
+        counts = {}
+        for r in fails:
+            counts[r.get("severity") or "Unrated"] = counts.get(r.get("severity") or "Unrated", 0) + 1
+        L.append("**Open findings by severity:** "
+                 + " · ".join(f"{k} {v}" for k, v in sorted(counts.items(), key=lambda kv: order.get(kv[0], 4)))
+                 + "\n")
+
+    areas: dict[str, list[int]] = {}
+    for r in rs:
+        a = areas.setdefault(r["area"], [0, 0])
+        a[0] += 1
+        a[1] += r["status"] == "pass"
+    L.append("## Coverage by area\n")
+    L.append("| Area | Tests | Passing |")
+    L.append("|------|-------|---------|")
+    for a in sorted(areas):
+        t, p = areas[a]
+        L.append(f"| {a} | {t} | {p}/{t} |")
+    L.append("")
+
     if fails:
         L.append("## Failures at a glance\n")
         L.append("| # | Severity | Test | What happened | Evidence |")
