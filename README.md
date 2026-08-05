@@ -19,8 +19,8 @@ Automated functional regression against **https://eaapp.somee.com** (ExecuteAuto
 
 | # | Severity | Test | What happened | Evidence |
 |---|---|---|---|---|
-| TC19b | Medium | Company contribution matches its printed formula | company contribution ₹278.46 contradicts the formula printed on the same page (PF 15% + 3×2% = 21% × 51.0 × 30 months = 321.3); the value implies an effective rate of 18.2% | [video](videos/TC19b.mp4) · [shot 1](screenshots/TC19b-bonus-formula-mismatch.png) |
-| TC19c | Low | Salary currency symbol is consistent across screens | salary is rendered as $ on the employee list but $/₹ on the details/PF screens — same field, two currencies | [video](videos/TC19c.mp4) · [shot 1](screenshots/TC19c-currency-list.png) |
+| TC19b | Medium | Company contribution matches its printed formula | company contribution ₹278.46 contradicts the formula printed on the same page (PF 15% + 3×2% = 21% × 51.0 × 30 months = 321.3); the value implies an effective rate of 18.2% | [video](videos/TC19b-small.mp4) · [shot 1](screenshots/TC19b-bonus-formula-mismatch.jpg) |
+| TC19c | Low | Salary currency symbol is consistent across screens | salary is rendered as $ on the employee list but $/₹ on the details/PF screens — same field, two currencies | [video](videos/TC19c-small.mp4) · [shot 1](screenshots/TC19c-currency-list.jpg) |
 
 ## Corrections to the previous (manual) run
 
@@ -77,9 +77,9 @@ The lesson is baked into the harness: every submit is scoped to its own form (`C
 
 **Actual:** company contribution ₹278.46 contradicts the formula printed on the same page (PF 15% + 3×2% = 21% × 51.0 × 30 months = 321.3); the value implies an effective rate of 18.2%
 
-**Recording of the failing workflow:** [`videos/TC19b.mp4`](videos/TC19b.mp4)
+**Recording of the failing workflow:** [`videos/TC19b-small.mp4`](videos/TC19b-small.mp4)
 
-![TC19b failure](screenshots/TC19b-bonus-formula-mismatch.png)
+![TC19b failure](screenshots/TC19b-bonus-formula-mismatch.jpg)
 
 ### TC19c — Salary currency symbol is consistent across screens  ·  severity Low
 
@@ -89,9 +89,9 @@ The lesson is baked into the harness: every submit is scoped to its own form (`C
 
 **Actual:** salary is rendered as $ on the employee list but $/₹ on the details/PF screens — same field, two currencies
 
-**Recording of the failing workflow:** [`videos/TC19c.mp4`](videos/TC19c.mp4)
+**Recording of the failing workflow:** [`videos/TC19c-small.mp4`](videos/TC19c-small.mp4)
 
-![TC19c failure](screenshots/TC19c-currency-list.png)
+![TC19c failure](screenshots/TC19c-currency-list.jpg)
 
 ## How to re-run
 
