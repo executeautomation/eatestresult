@@ -846,7 +846,10 @@ def main() -> int:
     ap.add_argument("--user", default="admin")
     ap.add_argument("--password", default="password")
     ap.add_argument("--keep-all-videos", action="store_true")
-    ap.add_argument("--only", default="")
+    ap.add_argument("--only", default="", help="comma-separated test ids, e.g. TC06,SEC03")
+    ap.add_argument("--areas", default="", help="comma-separated areas, e.g. Authorization,XSS")
+    ap.add_argument("--core-only", action="store_true",
+                    help="run only the core functional suite (skip the extended layers)")
     args = ap.parse_args()
 
     out = Path(args.out).resolve()
@@ -855,8 +858,19 @@ def main() -> int:
     raw_videos = out / "_raw_videos"
     raw_videos.mkdir(parents=True, exist_ok=True)
 
+    catalogue = list(TESTS)
+    if not args.core_only:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        try:
+            from ea_advanced import EXTRA_TESTS          # noqa: PLC0415 (lazy by design)
+            catalogue += EXTRA_TESTS
+        except Exception as e:                            # never let the extension break the core
+            print(f"WARNING: extended suite not loaded: {type(e).__name__}: {e}", file=sys.stderr)
+
     only = {t.strip().upper() for t in args.only.split(",") if t.strip()}
-    plan = [t for t in TESTS if not only or t[0] in only]
+    areas = {a.strip().lower() for a in args.areas.split(",") if a.strip()}
+    plan = [t for t in catalogue
+            if (not only or t[0].upper() in only) and (not areas or t[1].lower() in areas)]
     if not CHROME.exists():
         print(f"FATAL: chromium not found at {CHROME}", file=sys.stderr)
         return 3
