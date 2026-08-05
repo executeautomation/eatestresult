@@ -26,6 +26,14 @@ def shrink_image(src: Path, budget: int) -> Path:
         r = im.resize((w, max(1, round(im.height * w / im.width))), Image.LANCZOS)
         r.save(dest, "JPEG", quality=q, optimize=True, progressive=True)
         if dest.stat().st_size <= budget:
+            return dest
+    # A full-page shot of a very long listing stays huge at any quality: keep the top of the
+    # page (where the evidence is) rather than shipping an unreadable thumbnail.
+    for keep, q in ((1600, 62), (1200, 58), (900, 52)):
+        r = Image.open(dest)
+        r.crop((0, 0, r.width, min(r.height, keep))).save(
+            dest, "JPEG", quality=q, optimize=True, progressive=True)
+        if dest.stat().st_size <= budget:
             break
     return dest
 
