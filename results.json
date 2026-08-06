@@ -1,7 +1,7 @@
 {
   "base_url": "https://eaapp.somee.com",
-  "started_utc": "2026-08-05T19:58:11.670180+00:00",
-  "finished_utc": "2026-08-05T20:03:21.385315+00:00",
+  "started_utc": "2026-08-06T01:59:18.295900+00:00",
+  "finished_utc": "2026-08-06T02:04:53.481002+00:00",
   "total": 77,
   "passed": 68,
   "failed": 9,
@@ -33,7 +33,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.7,
+      "duration_s": 0.6,
       "notes": []
     },
     {
@@ -47,7 +47,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.9,
+      "duration_s": 1.0,
       "notes": []
     },
     {
@@ -75,7 +75,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.5,
+      "duration_s": 0.7,
       "notes": []
     },
     {
@@ -89,7 +89,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 1.7,
+      "duration_s": 1.9,
       "notes": []
     },
     {
@@ -117,7 +117,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 1.9,
+      "duration_s": 2.1,
       "notes": []
     },
     {
@@ -131,7 +131,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 2.3,
+      "duration_s": 2.5,
       "notes": []
     },
     {
@@ -145,7 +145,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.8,
+      "duration_s": 0.9,
       "notes": []
     },
     {
@@ -155,11 +155,11 @@
       "steps": "Submit /Account/Register with a unique username, email and valid password",
       "expected": "Account is created without error",
       "status": "pass",
-      "actual": "registered 'qauser20260806075829' and was signed in automatically",
+      "actual": "registered 'qauser20260806135937' and was signed in automatically",
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 2.9,
+      "duration_s": 3.2,
       "notes": []
     },
     {
@@ -173,7 +173,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 3.6,
+      "duration_s": 3.9,
       "notes": []
     },
     {
@@ -187,7 +187,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 4.0,
+      "duration_s": 4.2,
       "notes": []
     },
     {
@@ -197,7 +197,7 @@
       "steps": "Fill every field with valid data and submit",
       "expected": "Record is saved with the exact values and appears in the list",
       "status": "pass",
-      "actual": "created 'QA Regression 20260806075843' (id 520), all values stored correctly",
+      "actual": "created 'QA Regression 20260806135953' (id 530), all values stored correctly",
       "severity": "",
       "screenshots": [],
       "video": null,
@@ -211,11 +211,11 @@
       "steps": "Open Details for the created employee",
       "expected": "Name, salary, grade and duration are shown",
       "status": "pass",
-      "actual": "details page (/EmployeeDetails/Index/520) shows the selected employee",
+      "actual": "details page (/EmployeeDetails/Index/530) shows the selected employee",
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 7.7,
+      "duration_s": 8.5,
       "notes": []
     },
     {
@@ -231,7 +231,7 @@
         "screenshots/TC16-edit-form-before-save.png"
       ],
       "video": null,
-      "duration_s": 5.9,
+      "duration_s": 6.2,
       "notes": []
     },
     {
@@ -241,11 +241,11 @@
       "steps": "Delete the created employee and confirm",
       "expected": "Record is removed from the list",
       "status": "pass",
-      "actual": "'QA Regression 20260806075843' removed; no longer returned by search",
+      "actual": "'QA Regression 20260806135953' removed; no longer returned by search",
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 5.4,
+      "duration_s": 5.8,
       "notes": []
     },
     {
@@ -259,7 +259,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 4.0,
+      "duration_s": 2.5,
       "notes": []
     },
     {
@@ -289,7 +289,7 @@
         "screenshots/TC19b-bonus-formula-mismatch.png"
       ],
       "video": "videos/TC19b.mp4",
-      "duration_s": 2.8,
+      "duration_s": 2.9,
       "notes": []
     },
     {
@@ -305,7 +305,7 @@
         "screenshots/TC19c-currency-list.png"
       ],
       "video": "videos/TC19c.mp4",
-      "duration_s": 4.4,
+      "duration_s": 4.8,
       "notes": []
     },
     {
@@ -319,7 +319,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 2.1,
+      "duration_s": 2.2,
       "notes": []
     },
     {
@@ -333,7 +333,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 1.2,
+      "duration_s": 1.3,
       "notes": []
     },
     {
@@ -349,7 +349,7 @@
         "screenshots/TC22-mobile-390px.png"
       ],
       "video": null,
-      "duration_s": 1.7,
+      "duration_s": 1.8,
       "notes": []
     },
     {
@@ -363,7 +363,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.2,
+      "duration_s": 0.3,
       "notes": [
         "404 responses have an empty body (no styled 'not found' page), so a browser shows its own network-error screen instead of the app's UI"
       ]
@@ -375,11 +375,11 @@
       "steps": "Register a new user, sign in, open /Employee",
       "expected": "Create / Edit / Delete actions are hidden from non-admin users",
       "status": "pass",
-      "actual": "non-admin 'qarole0759338221' sees a read-only list (no admin actions)",
+      "actual": "non-admin 'qarole1400474129' sees a read-only list (no admin actions)",
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 5.9,
+      "duration_s": 5.8,
       "notes": []
     },
     {
@@ -393,7 +393,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 2.6,
+      "duration_s": 2.5,
       "notes": []
     },
     {
@@ -407,7 +407,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 2.4,
+      "duration_s": 2.5,
       "notes": []
     },
     {
@@ -417,11 +417,11 @@
       "steps": "Seed a record as admin, then open/submit its Delete page as the non-admin user",
       "expected": "The destructive action is refused for non-admins",
       "status": "pass",
-      "actual": "/Employee/Delete/521 is not served to the non-admin account",
+      "actual": "/Employee/Delete/531 is not served to the non-admin account",
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 7.7,
+      "duration_s": 7.9,
       "notes": []
     },
     {
@@ -435,7 +435,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 4.1,
+      "duration_s": 4.3,
       "notes": []
     },
     {
@@ -451,7 +451,7 @@
         "screenshots/SEC06-anon-dashboard.png"
       ],
       "video": "videos/SEC06.mp4",
-      "duration_s": 1.0,
+      "duration_s": 0.9,
       "notes": []
     },
     {
@@ -465,7 +465,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.3,
+      "duration_s": 0.2,
       "notes": []
     },
     {
@@ -493,7 +493,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 2.3,
+      "duration_s": 2.5,
       "notes": []
     },
     {
@@ -509,7 +509,7 @@
         "screenshots/SEC10-cookie-replay.png"
       ],
       "video": "videos/SEC10.mp4",
-      "duration_s": 5.5,
+      "duration_s": 4.9,
       "notes": []
     },
     {
@@ -579,7 +579,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 5.0,
+      "duration_s": 3.9,
       "notes": []
     },
     {
@@ -593,7 +593,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 3.5,
+      "duration_s": 3.6,
       "notes": []
     },
     {
@@ -607,7 +607,7 @@
       "severity": "Medium",
       "screenshots": [],
       "video": "videos/SEC17.mp4",
-      "duration_s": 11.8,
+      "duration_s": 12.7,
       "notes": []
     },
     {
@@ -621,7 +621,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 2.3,
+      "duration_s": 2.4,
       "notes": []
     },
     {
@@ -631,7 +631,7 @@
       "steps": "Register the same username twice",
       "expected": "The second attempt is rejected",
       "status": "pass",
-      "actual": "duplicate username 'qarole0759338221' rejected by registration",
+      "actual": "duplicate username 'qarole1400474129' rejected by registration",
       "severity": "",
       "screenshots": [],
       "video": null,
@@ -649,7 +649,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.8,
+      "duration_s": 0.9,
       "notes": []
     },
     {
@@ -663,7 +663,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.9,
+      "duration_s": 1.0,
       "notes": []
     },
     {
@@ -677,7 +677,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 1.3,
+      "duration_s": 1.4,
       "notes": []
     },
     {
@@ -691,7 +691,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 8.6,
+      "duration_s": 9.1,
       "notes": []
     },
     {
@@ -705,7 +705,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 1.3,
+      "duration_s": 1.4,
       "notes": []
     },
     {
@@ -719,7 +719,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 7.1,
+      "duration_s": 7.7,
       "notes": [
         "Name has no maximum-length validation: a 600-character value is stored and rendered into the list layout"
       ]
@@ -735,7 +735,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 4.8,
+      "duration_s": 4.9,
       "notes": []
     },
     {
@@ -749,7 +749,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 8.9,
+      "duration_s": 9.4,
       "notes": []
     },
     {
@@ -763,7 +763,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 4.7,
+      "duration_s": 4.5,
       "notes": []
     },
     {
@@ -777,7 +777,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 5.4,
+      "duration_s": 6.2,
       "notes": []
     },
     {
@@ -787,11 +787,11 @@
       "steps": "Save and re-read a name with accents and CJK characters",
       "expected": "The stored value is byte-identical on render",
       "status": "pass",
-      "actual": "unicode name round-trips intact ('QA \u00dcn\u00efcode \u6d4b\u8bd5 0801365459')",
+      "actual": "unicode name round-trips intact ('QA \u00dcn\u00efcode \u6d4b\u8bd5 1402594772')",
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 7.7,
+      "duration_s": 9.0,
       "notes": []
     },
     {
@@ -805,7 +805,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 7.2,
+      "duration_s": 7.7,
       "notes": []
     },
     {
@@ -819,7 +819,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 9.3,
+      "duration_s": 9.7,
       "notes": []
     },
     {
@@ -833,7 +833,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 5.2,
+      "duration_s": 5.6,
       "notes": []
     },
     {
@@ -847,7 +847,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.9,
+      "duration_s": 1.1,
       "notes": []
     },
     {
@@ -861,7 +861,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 1.8,
+      "duration_s": 2.1,
       "notes": []
     },
     {
@@ -875,7 +875,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 2.6,
+      "duration_s": 3.7,
       "notes": []
     },
     {
@@ -889,7 +889,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 9.5,
+      "duration_s": 10.2,
       "notes": []
     },
     {
@@ -903,7 +903,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 9.0,
+      "duration_s": 9.1,
       "notes": []
     },
     {
@@ -917,7 +917,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 7.3,
+      "duration_s": 7.5,
       "notes": []
     },
     {
@@ -927,11 +927,11 @@
       "steps": "Walk pages 1\u20133 and compare the row sets and the 'Showing X\u2013Y of Z' counter",
       "expected": "No row appears twice; the counter is coherent",
       "status": "pass",
-      "actual": "3 pages walked, 15 distinct rows, no overlap; counter 'Showing 11\u201315 of 281' consistent",
+      "actual": "3 pages walked, 15 distinct rows, no overlap; counter 'Showing 11\u201315 of 282' consistent",
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 0.8,
+      "duration_s": 0.9,
       "notes": []
     },
     {
@@ -959,7 +959,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 5.6,
+      "duration_s": 5.9,
       "notes": []
     },
     {
@@ -1031,7 +1031,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 3.7,
+      "duration_s": 3.8,
       "notes": []
     },
     {
@@ -1045,7 +1045,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 1.7,
+      "duration_s": 1.8,
       "notes": []
     },
     {
@@ -1061,7 +1061,7 @@
         "screenshots/UX03-tablet-768px.png"
       ],
       "video": null,
-      "duration_s": 1.6,
+      "duration_s": 1.7,
       "notes": []
     },
     {
@@ -1075,7 +1075,7 @@
       "severity": "Low",
       "screenshots": [],
       "video": "videos/A11Y01.mp4",
-      "duration_s": 1.3,
+      "duration_s": 1.5,
       "notes": []
     },
     {
@@ -1089,7 +1089,7 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 2.8,
+      "duration_s": 3.1,
       "notes": []
     },
     {
@@ -1103,11 +1103,10 @@
       "severity": "",
       "screenshots": [],
       "video": null,
-      "duration_s": 8.6,
+      "duration_s": 9.5,
       "notes": [
-        "the registered test account 'qarole0759338221' remains \u2014 the app offers no self-service account deletion"
+        "the registered test account 'qarole1400474129' remains \u2014 the app offers no self-service account deletion"
       ]
     }
-  ],
-  "merged_utc": "2026-08-05T20:04:34.690817+00:00"
+  ]
 }
