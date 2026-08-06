@@ -5,8 +5,8 @@ Automated functional regression against **https://eaapp.somee.com** (ExecuteAuto
 | | |
 |---|---|
 | Application under test | https://eaapp.somee.com |
-| Run started | 06 Aug 2026, 07:58 NZST |
-| Duration | 310s |
+| Run started | 06 Aug 2026, 13:59 NZST |
+| Duration | 335s |
 | Runner | Playwright + Chromium (headless, 1440×900), one isolated browser context per test |
 | Tests | **77** |
 | Passed | **68** |
@@ -90,13 +90,13 @@ Two findings from this run were also self-corrected before publication: a non-nu
 | TC08 | Auth | Login with a wrong password is rejected | Submit admin / wrongpass123 | 'Invalid login attempt.' | 'Invalid login attempt.' shown | ✅ Pass |
 | TC09 | Auth | Login with valid admin credentials | Submit admin / password | Authenticated; admin-only actions become visible | authenticated as admin; New Employee / Edit / Delete visible | ✅ Pass |
 | TC10 | Auth | Anonymous user cannot reach admin screens | Open /Employee and /Employee/Create in a clean session | No admin actions on the list; /Employee/Create redirects to login | anonymous user sees read-only list; /Employee/Create redirects to login | ✅ Pass |
-| TC11 | Auth | Register a new user account | Submit /Account/Register with a unique username, email and valid password | Account is created without error | registered 'qauser20260806075829' and was signed in automatically | ✅ Pass |
+| TC11 | Auth | Register a new user account | Submit /Account/Register with a unique username, email and valid password | Account is created without error | registered 'qauser20260806135937' and was signed in automatically | ✅ Pass |
 | TC12 | Create | Create form validates required fields | Submit /Employee/Create empty | Every required field is flagged | required-field validation fired on empty submit | ✅ Pass |
 | TC13 | Create | Create form validates email format | Submit the create form with Email=not-an-email | Email format error is shown | email format rejected: 'The Email field is not a valid e-mail address.' | ✅ Pass |
-| TC14 | Create | Create a valid employee record | Fill every field with valid data and submit | Record is saved with the exact values and appears in the list | created 'QA Regression 20260806075843' (id 520), all values stored correctly | ✅ Pass |
-| TC15 | Details | Details view shows the record's data | Open Details for the created employee | Name, salary, grade and duration are shown | details page (/EmployeeDetails/Index/520) shows the selected employee | ✅ Pass |
+| TC14 | Create | Create a valid employee record | Fill every field with valid data and submit | Record is saved with the exact values and appears in the list | created 'QA Regression 20260806135953' (id 530), all values stored correctly | ✅ Pass |
+| TC15 | Details | Details view shows the record's data | Open Details for the created employee | Name, salary, grade and duration are shown | details page (/EmployeeDetails/Index/530) shows the selected employee | ✅ Pass |
 | TC16 | Edit | Update an existing employee | Edit the created employee: salary 75000→82000, grade Senior→C-Level, save | Changes are persisted and visible in the list | edit persisted: salary $82,000.00, grade C-Level | ✅ Pass |
-| TC17 | Delete | Delete an employee | Delete the created employee and confirm | Record is removed from the list | 'QA Regression 20260806075843' removed; no longer returned by search | ✅ Pass |
+| TC17 | Delete | Delete an employee | Delete the created employee and confirm | Record is removed from the list | 'QA Regression 20260806135953' removed; no longer returned by search | ✅ Pass |
 | TC18 | Dashboard | Dashboard renders metrics | Open /Dashboard as admin | Dashboard renders with employee metrics | dashboard rendered with metrics (sample: ['281', '$38,922', '31', '3', '$10,937,034', '5']) | ✅ Pass |
 | TC19 | PF | PF contribution total matches its own formula | Open an employee's PF Contribution page | Total equals 12% × monthly salary × months worked | PF total ₹183.6 == 12% × 51.0 × 30 months (employee 79) | ✅ Pass |
 | TC19b | PF | Company contribution matches its printed formula | Open the same employee's Company Contribution page | Total equals the PF% + grade-allowance formula shown on the page | company contribution ₹278.46 contradicts the formula printed on the same page (PF 15% + 3×2% = 21% × 51.0 × 30 months = 321.3); the value implies an effective rate of 18.2% | ❌ **Fail** |
@@ -105,10 +105,10 @@ Two findings from this run were also self-corrected before publication: a non-nu
 | TC21 | Pagination | Last page and out-of-range page behave sanely | Open the last page, then a page number far beyond it | Last page has rows; out-of-range clamps or empties without an error page | page=57 rendered 1 rows; out-of-range page=557 handled gracefully (1 rows, no error page) | ✅ Pass |
 | TC22 | Responsive | Employee list at a 390px mobile viewport | Open /Employee at 390×844 | No horizontal overflow of the document | no horizontal overflow at 390px (doc 390px / win 390px) | ✅ Pass |
 | TC23 | Robustness | Non-existent record id is handled | Open /Employee/Details/99999999 | Handled 404/redirect with no framework internals leaked | HTTP 404 with an empty body — correct status, no branded error page | ✅ Pass |
-| SEC01 | Authorization | Plain registered user sees no admin actions | Register a new user, sign in, open /Employee | Create / Edit / Delete actions are hidden from non-admin users | non-admin 'qarole0759338221' sees a read-only list (no admin actions) | ✅ Pass |
+| SEC01 | Authorization | Plain registered user sees no admin actions | Register a new user, sign in, open /Employee | Create / Edit / Delete actions are hidden from non-admin users | non-admin 'qarole1400474129' sees a read-only list (no admin actions) | ✅ Pass |
 | SEC02 | Authorization | Non-admin cannot open the create form | As the registered non-admin user, open /Employee/Create | Access is denied or redirected, not the form | /Employee/Create is not served to the non-admin account (https://eaapp.somee.com/Account/AccessDenied?ReturnUrl=%2FEmployee%2FCreate) | ✅ Pass |
 | SEC03 | Authorization | Non-admin cannot persist a new employee | As the non-admin user, submit the create form | The write is rejected; no record is created | non-admin cannot even load the create form, so no write was attempted | ✅ Pass |
-| SEC04 | Authorization | Non-admin cannot delete an employee | Seed a record as admin, then open/submit its Delete page as the non-admin user | The destructive action is refused for non-admins | /Employee/Delete/521 is not served to the non-admin account | ✅ Pass |
+| SEC04 | Authorization | Non-admin cannot delete an employee | Seed a record as admin, then open/submit its Delete page as the non-admin user | The destructive action is refused for non-admins | /Employee/Delete/531 is not served to the non-admin account | ✅ Pass |
 | SEC05 | Authorization | Unauthenticated POST cannot create data | POST employee fields to /Employee/Create with no session | Request is rejected (redirect/401/403) and nothing is stored | unauthenticated POST rejected (HTTP 200); no record created | ✅ Pass |
 | SEC06 | Authorization | Dashboard is not exposed anonymously | Request /Home/Dashboard with no session | Anonymous visitors cannot read aggregate payroll metrics | the management dashboard and its aggregate salary figures render for an anonymous visitor (HTTP 200, landed on https://eaapp.somee.com/Home/Dashboard) | ❌ **Fail** |
 | SEC07 | Authorization | Account management requires a session | Request /Manage with no session | Redirect to login or 401/403 | /Manage requires authentication (HTTP 200 -> https://eaapp.somee.com/Account/Login?ReturnUrl=%2FManage) | ✅ Pass |
@@ -123,7 +123,7 @@ Two findings from this run were also self-corrected before publication: a non-nu
 | SEC16 | Auth | Login does not disclose whether a username exists | Compare responses for an unknown user vs a wrong password | Both produce the same generic message | identical rejection for unknown user and wrong password ('invalid login attempt.') | ✅ Pass |
 | SEC17 | Auth | Repeated failed logins are throttled or locked out | Submit six wrong passwords for admin, then the correct one | Lockout, throttling or CAPTCHA engages | six consecutive failed logins for the admin account triggered no lockout, throttling or CAPTCHA, and the account remained usable immediately after — credential stuffing is unthrottled | ❌ **Fail** |
 | SEC18 | Auth | Registration enforces a password policy | Register with the password '1' | The weak password is rejected | a one-character password is rejected by the registration policy | ✅ Pass |
-| SEC19 | Auth | Usernames are unique | Register the same username twice | The second attempt is rejected | duplicate username 'qarole0759338221' rejected by registration | ✅ Pass |
+| SEC19 | Auth | Usernames are unique | Register the same username twice | The second attempt is rejected | duplicate username 'qarole1400474129' rejected by registration | ✅ Pass |
 | INJ01 | Injection | SQL tautology in the search box | Search for ' OR '1'='1 | Treated as literal text; no DB error, no full dump | SQL tautology treated as literal text (1 rows, no DB error) — parameterised query | ✅ Pass |
 | INJ02 | Injection | Quote/wildcard/terminator payloads in search | Search O'Brien, %, _, 1;DROP TABLE Employee-- | All handled as literals with no SQL exception page | quote, wildcard and statement-terminator payloads all handled as literals | ✅ Pass |
 | INJ03 | XSS | Reflected XSS via the search parameter | Load /Employee?searchTerm=<script>…</script> | Payload is HTML-encoded and never executes | the search term is HTML-encoded when echoed back; no script execution | ✅ Pass |
@@ -134,7 +134,7 @@ Two findings from this run were also self-corrected before publication: a non-nu
 | VAL02 | Validation | Age accepts only a plausible range | Save employees aged -5, 0 and 500 | All three are rejected | negative, zero and 500-year ages are all rejected | ✅ Pass |
 | VAL03 | Validation | Non-numeric salary is rejected | Save an employee with salary 'not-a-number' | Type validation refuses the value | non-numeric salary rejected server-side (HTTP 400); the field is also client-guarded as input type='number' | ✅ Pass |
 | VAL04 | Validation | Whitespace-only name is rejected | Save an employee named '   ' | Required-field validation refuses it | whitespace-only name rejected as required | ✅ Pass |
-| VAL05 | Data integrity | Unicode names round-trip | Save and re-read a name with accents and CJK characters | The stored value is byte-identical on render | unicode name round-trips intact ('QA Ünïcode 测试 0801365459') | ✅ Pass |
+| VAL05 | Data integrity | Unicode names round-trip | Save and re-read a name with accents and CJK characters | The stored value is byte-identical on render | unicode name round-trips intact ('QA Ünïcode 测试 1402594772') | ✅ Pass |
 | VAL06 | Data integrity | Decimal salary precision | Save salary 1234.56 and re-read it | Value is preserved or cleanly rejected | decimal salary preserved as $1,234.56 | ✅ Pass |
 | VAL07 | Business rule | Duplicate employee email | Create two employees with the same email address | Either rejected, or allowed by design with no downstream ambiguity | a duplicate employee email is rejected | ✅ Pass |
 | BIZ01 | Filter | Grade filter is correct for all four grades | Filter the list by Junior, Middle, Senior and C-Level in turn | Each filter returns only that grade and keeps the selection | all four grades filter correctly and the dropdown keeps the selection | ✅ Pass |
@@ -144,7 +144,7 @@ Two findings from this run were also self-corrected before publication: a non-nu
 | BIZ05 | Edit | Editing one field leaves the others untouched | Change only Salary on a seeded record and re-read every field | Only Salary changes | editing Salary changed only Salary; all other fields unchanged | ✅ Pass |
 | BIZ06 | Delete | Delete confirmation is accurate and cancellable | Open Delete for a seeded record, verify it names the record, then navigate away | The record is named and survives a cancel | the confirmation page names the record and cancelling leaves it intact | ✅ Pass |
 | BIZ07 | PF | PF formula holds for a controlled record | Seed salary 120000 / 10 months and open its PF page | Total equals 12% × monthly salary × months | PF formula holds for a second, controlled record (₹144000.0 = 12% × 120000.0 × 10) | ✅ Pass |
-| BIZ08 | Pagination | Pages do not overlap and the counter is consistent | Walk pages 1–3 and compare the row sets and the 'Showing X–Y of Z' counter | No row appears twice; the counter is coherent | 3 pages walked, 15 distinct rows, no overlap; counter 'Showing 11–15 of 281' consistent | ✅ Pass |
+| BIZ08 | Pagination | Pages do not overlap and the counter is consistent | Walk pages 1–3 and compare the row sets and the 'Showing X–Y of Z' counter | No row appears twice; the counter is coherent | 3 pages walked, 15 distinct rows, no overlap; counter 'Showing 11–15 of 282' consistent | ✅ Pass |
 | OPS01 | Performance | Key pages respond within 3s | Time the home, list, login, register and details screens | Every page is under the 3s budget | all key pages responded within 3s: / 0.05s, /Employee 0.05s, /Account/Login 0.05s, /Account/Register 0.05s, /EmployeeDetails 0.21s | ✅ Pass |
 | OPS02 | Links | No broken internal links | Collect and request every internal link on the main screens | All resolve with a status below 400 | all 74 internal links on the main screens resolve (<400) | ✅ Pass |
 | OPS03 | Performance | Static assets are cacheable | Inspect cache headers on CSS/JS/image assets | max-age, ETag or Last-Modified present | static assets carry cache/validation headers (7 checked) | ✅ Pass |
@@ -163,7 +163,7 @@ Two findings from this run were also self-corrected before publication: a non-nu
 - **TC23** — 404 responses have an empty body (no styled 'not found' page), so a browser shows its own network-error screen instead of the app's UI
 - **INJ06** — Name has no maximum-length validation: a 600-character value is stored and rendered into the list layout
 - **OPS06** — neither robots.txt nor sitemap.xml is served — acceptable for an internal app, but crawlers get no guidance for the public pages
-- **CLEAN** — the registered test account 'qarole0759338221' remains — the app offers no self-service account deletion
+- **CLEAN** — the registered test account 'qarole1400474129' remains — the app offers no self-service account deletion
 
 ## Failure detail
 
@@ -274,4 +274,4 @@ python3 scripts/render_report.py --results output/ea-regression/results.json
 
 `--only TC06,TC16` runs a subset, `--keep-all-videos` records passing tests too, `--base-url` points the suite at another deployment. Test data is created with a timestamped name and deleted by the delete test in the same run.
 
-<sub>Generated 06 Aug 2026, 08:05 NZST from `results.json`.</sub>
+<sub>Generated 06 Aug 2026, 14:05 NZST from `results.json`.</sub>
